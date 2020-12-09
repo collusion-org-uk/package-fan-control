@@ -1,0 +1,15 @@
+{
+    "name": "Projector Control",
+    "author": "Rich Hall <rich@collusion.org.uk>",
+    "desc": "Switches on and off fanshim",
+    "repository": "https://github.com/collusion-org-uk/package-projector-control",
+    "platforms": ["pi/epoch-1", "pi/epoch-2"],
+    "offline": {
+        "support": "no",
+        "info": "Requires correct system time to decide when to turn fan on/off"
+    },
+    "nesting": {
+        "parents": "any",
+        "childs": []
+    }
+}

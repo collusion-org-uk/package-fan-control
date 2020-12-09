@@ -1,0 +1,44 @@
+#!/usr/bin/python2.7
+import time
+import sys
+import pytz
+import serial
+from datetime import datetime
+from hosted import config, device
+from fanshim import FanShim
+
+fanshim = FanShim()
+
+config.restart_on_update()
+
+tz = pytz.timezone(config.timezone)
+
+device.screen(on = True)
+while time.time() < 10000000:
+    print >>sys.stderr, "waiting for correct system time"
+    time.sleep(1)
+
+time.sleep(15)
+
+while 1:
+    now = pytz.utc.localize(datetime.utcnow(), is_dst=None).astimezone(tz)
+    print >>sys.stderr, now
+
+    dow = now.weekday()
+    hour = now.hour
+    hour = dow * 24 + hour
+    print >>sys.stderr, "Hour: %d" % hour
+    
+    try:
+        on = config.times[hour]
+    except IndexError:
+        on = True
+    print >>sys.stderr, "Screen on: %r" % on
+
+    if on:
+        fanshim.set_fan(True)
+    else:
+        fanshim.set_fan(False)
+
+
+    time.sleep(60)
