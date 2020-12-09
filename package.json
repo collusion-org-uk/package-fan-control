@@ -1,8 +1,8 @@
 {
-    "name": "Projector Control",
+    "name": "Fan Control",
     "author": "Rich Hall <rich@collusion.org.uk>",
     "desc": "Switches on and off fanshim",
-    "repository": "https://github.com/collusion-org-uk/package-projector-control",
+    "repository": "https://github.com/collusion-org-uk/package-fan-control",
     "platforms": ["pi/epoch-1", "pi/epoch-2"],
     "offline": {
         "support": "no",
