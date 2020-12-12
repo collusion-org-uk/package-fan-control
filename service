@@ -7,6 +7,7 @@ from datetime import datetime
 from hosted import config, device
 
 config.restart_on_update()
+device.gpio.setup_pin(self, 18, direction="out", invert=False)
 
 tz = pytz.timezone(config.timezone)
 
