@@ -1,4 +1,4 @@
-from .RPi import RPi.GPIO as GPIO
+from .RPi import GPIO as GPIO
 import time
 import apa102
 import atexit
