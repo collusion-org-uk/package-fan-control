@@ -5,7 +5,7 @@ import pytz
 import serial
 from datetime import datetime
 from hosted import config, device
-from fanshim import FanShim
+
 
 fanshim = FanShim()
 
@@ -33,12 +33,12 @@ while 1:
         on = config.times[hour]
     except IndexError:
         on = True
-    print >>sys.stderr, "Screen on: %r" % on
+    print >>sys.stderr, "Fan on: %r" % on
 
     if on:
-        fanshim.set_fan(True)
+        device.gpio.set_pin_value(18, True)
     else:
-        fanshim.set_fan(False)
+        device.gpio.set_pin_value(18, False)
 
 
     time.sleep(60)

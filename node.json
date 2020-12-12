@@ -9,7 +9,7 @@
         ".gitignore"
     ],
 	"permissions": {
-		"serial": "request serial access"
+		"gpio": "Access GPIO"
 	},
     "options": [{
         "title": "Time Zone and Schedule",
